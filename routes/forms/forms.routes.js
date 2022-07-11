@@ -54,7 +54,7 @@ router.post('/:id', async (req, res) => {
         res.status(200).json(SavedResponse)
 
     } catch (error) {
-
+        res.status(500).send('Error')
     }
 })
 
@@ -79,7 +79,6 @@ router.get('/responses/:id/:token', async (req, res) => {
         for (var i = 0; i < Responses.length; i++) {
             toSend.push(Responses[i]['data'])
         }
-        console.log(toSend)
         res.json(toSend)
     } catch (error) {
         res.status(500).send(error.message)
