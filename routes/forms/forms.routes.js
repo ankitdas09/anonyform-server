@@ -12,7 +12,7 @@ router.get('/:id', async (req, res) => {
         return
     }
     try {
-        const FormData = await FormModel.findById(id)
+        const FormData = await FormModel.findById(id).select('-accessKey')
         if (!FormData) {
             res.status(500).send('Invalid ID')
             return
